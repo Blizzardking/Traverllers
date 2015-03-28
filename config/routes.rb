@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  
+  root 'index#index'
+  
+  get 'home/index' => 'home#index', as: :home_page
+
+  post 'index/is_login' => 'index#is_login', as: :is_login
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
