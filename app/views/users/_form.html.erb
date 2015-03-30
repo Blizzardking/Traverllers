@@ -12,24 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+    <%= f.label :firstname %><br>
+    <%= f.text_field :firstname %>
   </div>
   <div class="field">
     <%= f.label :password %><br>
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :email_address %><br>
-    <%= f.text_field :email_address %>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
+    <%= f.label :date_of_birth %><br>
+    <%= f.date_field :date_of_birth %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.check_box :gender %>
+    <%= f.radio_button :gender, 1 %>
+    <%= f.radio_button :gender, 0 %>
   </div>
   <div class="field">
     <%= f.label :safe_question %><br>

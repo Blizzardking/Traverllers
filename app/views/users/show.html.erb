@@ -1,39 +1,39 @@
 <p id="notice"><%= notice %></p>
-<% provide(:title, @user.username) %>
+<% provide(:title, @user.firstname) %>
 <h1>
   <%= gravatar_for @user %>
-  <%= @user.username %>
+  <%= @user.firstname %>
 </h1>
 
-<!--<p>-->
-<!--  <strong>Password:</strong>-->
-<!--  <%= @user.password %>-->
-<!--</p>-->
+<p>
+  <strong>Password:</strong>
+  <%= @user.password %>
+</p>
 
-<!--<p>-->
-<!--  <strong>Email address:</strong>-->
-<!--  <%= @user.email_address %>-->
-<!--</p>-->
+<p>
+  <strong>Email address:</strong>
+  <%= @user.email %>
+</p>
 
-<!--<p>-->
-<!--  <strong>Age:</strong>-->
-<!--  <%= @user.age %>-->
-<!--</p>-->
+<p>
+  <strong>Date of Birth:</strong>
+  <%= @user.date_of_birth %>
+</p>
 
-<!--<p>-->
-<!--  <strong>Gender:</strong>-->
-<!--  <%= @user.gender %>-->
-<!--</p>-->
+<p>
+  <strong>Gender:</strong>
+  <%= @user.gender %>
+</p>
 
-<!--<p>-->
-<!--  <strong>Safe question:</strong>-->
-<!--  <%= @user.safe_question %>-->
-<!--</p>-->
+<p>
+  <strong>Safe question:</strong>
+  <%= @user.safe_question %>
+</p>
 
-<!--<p>-->
-<!--  <strong>Safe answer:</strong>-->
-<!--  <%= @user.safe_answer %>-->
-<!--</p>-->
+<p>
+  <strong>Safe answer:</strong>
+  <%= @user.safe_answer %>
+</p>
 
-<!--<%= link_to 'Edit', edit_user_path(@user) %> |-->
-<!--<%= link_to 'Back', users_path %>-->
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

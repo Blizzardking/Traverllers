@@ -2,29 +2,25 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a href="#">
-            <%= image_tag "logo_1_3756768155.gif", :height => "64", :alt => "Logo" %>
-          </a>
+          <%= link_to image_tag("logo_1_3756768155.gif", height: "64", alt: "Logo" ), '#', class:'navbar-brand' %>
         </div>
         <div id="login form">
-          <form class="navbar-form navbar-right" role="login">
-              <%= form_for :session, url: login_path do |f| %>
+              <%= form_for :session, url: login_path, :html => {class: "navbar-form navbar-right", role:"login"} do |f| %>
                   <div class="form-group">
-                  <%= f.label :email, 'Username', class:"control-label" %>
-                  <%= f.email_field :email, class: 'form-control', placeholder:"Username" %>
+                  <%= f.label :email, 'Email', class:"control-label" %>
+                  <%= f.email_field :email, class: 'form-control', placeholder:"john@gmail.com" %>
                   <%= f.label :password, 'Password', class:"control-label" %>
                   <%= f.password_field :password, class: 'form-control', placeholder:"Password" %>
                   </div>
                 <%= f.submit "Log in", class: "btn btn-primary" %>
             <% end %>
-          </form>
         </div>
     </nav>
 </div>
 
 <div class="row">
   
-    <div class="cold-md-8 pull-left">
+    <div class="cold-md-7">
         <!--Carousel Example-->
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
@@ -67,25 +63,52 @@
         </div>
     </div>
     
-    <div class="col-md-4 pull-right">
+    <div class="col-md-5">
         <div class="login-panel panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title"><b>Sign Up</b></h3>
                 <h5>It's free and always will be.</h5>
             </div>
             <div class="panel-body">
-              <form role="signup">
-              <%= form_for :session, url: root_path do |f| %>
-                  <div class="form-group">
-                  <%= f.label :email, 'Username', class:"control-label" %>
-                  <%= f.email_field :email, class: 'form-control', placeholder:"Username" %>
-                  <%= f.label :password, 'Password', class:"control-label" %>
-                  <%= f.password_field :password, class: 'form-control', placeholder:"Password" %>
+               <%= form_for :user, url:users_path, html:{class:"form-group"} do |f| %>
+
+                  <%= f.label :name, "Name:", class: 'control-label' %>
+                  <div id='name' class='form-inline controls'>
+                    <%= f.text_field :firstname, class: 'form-control', placeholder:"First name" %>
+                    <%= f.text_field :lastname, class: 'form-control', placeholder:"Last name" %>
                   </div>
-                <%= f.submit "Sign Up", class: "btn btn-lg btn-primary btn-block" %>
-              <% end %>
-            </form>
+                  
+                  <%= f.label :email, "Email:", class: 'control-label' %>
+                  <%= f.email_field :email, class: 'form-control', placeholder:"Your email address" %>
+                  
+                  <%= f.label :password, "Password:", class: 'control-label' %>
+                  <%= f.password_field :password, class: 'form-control', placeholder:"123456" %>
+                  
+                  <%= f.label :password_confirmation, "Confirm password:", class: 'control-label' %>
+                  <%= f.password_field :password_confirmation, class: 'form-control', placeholder:"123456" %>
+            
+                  <%= f.label :date_of_birth, "Date of birth:", class: 'control-label' %>
+                  <%= f.date_field :date_of_birth, value: Date.new(1984, 1, 27), class:'form-control' %>
+                  
+                  <%= f.label :gender, "Gender:", class: 'control-label' %>
+                  <div class="controls form-inline">
+                    <%= f.radio_button :gender, 1 %>
+                    <%= f.label :gender_1, "Male" %>
+                    <%= f.radio_button :gender, 0 %>
+                    <%= f.label :gender_0, "Female" %>
+                  </div>
+                  <br/>
+                  
+                  <%= f.label :safe_question, "Safe question:", class: 'control-label' %>
+                  <%= f.select :safe_question, ['Which city were you born?', 'What\'s the name of your first pet?', 'What\'s your favorite color?'], {}, { class:'form-control'} %>
+                  
+                  <%= f.label :safe_answer, "Safe answer", class: 'control-label' %>
+                  <%= f.text_field :safe_answer, class: 'form-control', placeholder:"Example: Beijing" %>
+                  <br/>
+                  
+                  <%= f.submit "Sign Up", class: "btn btn-lg btn-primary btn-block" %>
+                <% end %>
             </div>
         </div>
+    </div>
 </div>
-    <!--end of row-->

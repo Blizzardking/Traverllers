@@ -20,3 +20,7 @@ $gray-medium-light: #eaeaea;
   margin-top: 45px;
   @include box_sizing;
 }
+
+.navbar-header a:hover {
+  background-color: #f8f8f8;
+}
