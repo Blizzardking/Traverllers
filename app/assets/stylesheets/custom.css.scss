@@ -21,6 +21,10 @@ $gray-medium-light: #eaeaea;
   @include box_sizing;
 }
 
-.navbar-header a:hover {
-  background-color: #f8f8f8;
+#users_main {
+  margin-top: 50px;
+}
+
+.navbar-header img {
+  height: 50px; 
 }

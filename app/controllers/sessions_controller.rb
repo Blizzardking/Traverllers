@@ -6,17 +6,17 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    authenticated = user.authenticate(params[:session][:password])
-    if (user && authenticated)
-      log_in user
-      redirect_to user
+    @user = User.find_by(email: params[:session][:email].downcase)
+    
+    if !@user
+      flash.now[:danger] = 'Your account does not exist!'
+      return render 'new'
+    end
+    if (@user.authenticate(params[:session][:password]))
+      log_in @user
+      redirect_to @user
     else
-      if !user
-        flash.now[:danger] = 'Your account does not exist!'
-      else
-        flash.now[:danger] = 'Incorrect password!'
-      end
+      flash.now[:danger] = 'Incorrect password!'
       render 'new'
     end
   end

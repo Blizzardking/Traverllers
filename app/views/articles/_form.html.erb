@@ -1,0 +1,26 @@
+<% if @article.errors.any? %>
+  <ul>
+    <%= @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for @article do |f| %>
+  <div>
+    <%= f.label :title, class: 'control-label' %>
+  </div>
+  <div>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.label :body, class: 'control-label' %>
+  </div>
+  <div>
+    <%= f.cktext_area :body, rows: 20 %>
+  </div>
+  <br/>
+  <div>
+    <%= f.submit "Post", class: "btn btn-primary btn-lg"%>
+    <%= link_to "Go Back", articles_path, class:'btn btn-success btn-lg' %>
+  </div>
+<% end %>

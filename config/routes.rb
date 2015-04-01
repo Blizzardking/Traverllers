@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
   
+  mount Ckeditor::Engine => '/ckeditor'
+  resources :articles
+
   root                'pages#home'
-  get    'signup'  => 'sessions#new'
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
-  resources :users
+  get    '/signup'  => 'sessions#new'
+  get    '/login'   => 'sessions#new'
+  post   '/login'   => 'sessions#create'
+  delete '/logout'  => 'sessions#destroy'
+  # resources 'users'
+  post   '/users'     => 'users#create', as: 'users'
+  get	   '/users/:id' => 'users#show', as: 'user'
+  get	   '/users/:id/edit'  => 'users#edit', as: 'edit_user'
+  delete '/users/:id' =>	'users#destroy', as: 'delete_user'
+  put  '/users/:id' => 'users#update', as: 'update_user'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
