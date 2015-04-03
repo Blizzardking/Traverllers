@@ -3,18 +3,18 @@
 <head>
   <title>Workspace</title>
   <%= stylesheet_link_tag    'application', debug: false, media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', debug: false, 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class="container" id='users_main'>
-      <%= render "layouts/header" %>
+    <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
+      <%= render "layouts/login_header" %>
       <%= yield %>
-      <%= debug(params) if Rails.env.development? %>
+      <!--<%= debug(params) if Rails.env.development? %>-->
       <%= render "layouts/footer" %>
     </div>
+    <%= javascript_include_tag 'application', debug: false, 'data-turbolinks-track' => true %>
 </body>
 </html>

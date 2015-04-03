@@ -1,10 +1,13 @@
 // Place all the styles related to the index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#loginForm {
+	padding:10px 0px;
+}
 
-	#signUpPanel {
-        padding:0px;
-    }
+#signUpPanel {
+    padding:0px;
+}
 
 
 #name input{
@@ -20,6 +23,7 @@
     margin-bottom:20px;
     padding: 0px;
 }
+
 #loginCarousel .item { height: 498px;}
 
 #slide1 {
@@ -40,6 +44,10 @@
 
 /* Portrait & landscape phone */
 @media (max-width: 480px) {
+	#loginForm {
+		padding:10px 15px;
+	}
+	#carouselMain {margin-top:160px;}
 	.thumbnail .price {
 		font-size: 14px;
 	}
@@ -52,8 +60,11 @@
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
+	#loginForm {
+		padding:10px 15px;
+	}
 	#loginCarousel .item { height:498px;}
-	
+	#carouselMain {margin-top:160px;}
 	#slide1 {
 		background: image-url("travel_1.jpg") top center no-repeat;
 	}
@@ -93,6 +104,4 @@
 		background: image-url("travel_3.jpg") top center no-repeat;
 	}
 	
-
-
 }

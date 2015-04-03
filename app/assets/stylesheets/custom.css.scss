@@ -21,10 +21,10 @@ $gray-medium-light: #eaeaea;
   @include box_sizing;
 }
 
-#users_main {
-  margin-top: 50px;
-}
-
 .navbar-header img {
   height: 50px; 
+}
+
+body > div.container {
+  margin-top: 70px;
 }

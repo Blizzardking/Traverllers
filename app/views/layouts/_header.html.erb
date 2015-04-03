@@ -13,7 +13,7 @@
 		<div class="collapse navbar-collapse navbar-responsive-collapse">
 			<ul class="nav navbar-nav">
 		  	  <li class='active'><%= link_to "News", root_path%></li>
-              <li><%= link_to "Home", user_path(@user) %></li>
+              <li><%= link_to "Home", user_path(current_user) %></li>
 			<li>
 			</ul>
 			<form class="navbar-form navbar-left">
