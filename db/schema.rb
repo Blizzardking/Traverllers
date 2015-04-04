@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401210202) do
+ActiveRecord::Schema.define(version: 20150404142755) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 20150401210202) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
+  create_table "relationships", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
   create_table "users", force: true do |t|
     t.string   "firstname"
     t.string   "email"
@@ -47,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150401210202) do
     t.string   "password_digest"
     t.string   "lastname"
     t.date     "date_of_birth"
+    t.boolean  "admin",           default: false
   end
 
 end

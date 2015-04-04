@@ -4,7 +4,11 @@
           <%= link_to image_tag("logo_1_3756768155.gif", alt: "Logo" ), '#', class:'navbar-brand' %>
         </div>
         <%= form_for :session, url: login_path, :html => {class: "navbar-form navbar-right", role:"login", id:'loginForm'} do |f| %>
+
               <div class="form-group">
+              <% if flash[:danger] %>
+                <div class="alert alert-danger pull-left" id="login-error"><%= flash[:danger] %></div>
+              <% end %>
               <%= f.label :email, 'Email', class:"control-label" %>
               <%= f.email_field :email, class: 'form-control', placeholder:"john@gmail.com" %>
               <%= f.label :password, 'Password', class:"control-label" %>

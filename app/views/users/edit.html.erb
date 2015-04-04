@@ -1,6 +1,52 @@
-<h1>Editing user</h1>
+<% provide(:title, "Edit user") %>
 
-<%= render 'form' %>
+<div class="row">
+    
+  <div class="col-md-4 col-md-offset-4">
+     <h1>Update your profile</h1>
+  </div>
+  <div class="col-md-4 col-md-offset-4">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+          <%= f.label :name, "Name:", class: 'control-label' %>
+          <div id='name' class='form-inline'>
+            <%= f.text_field :firstname, class: 'form-control', placeholder:"First name" %>
+            <%= f.text_field :lastname, class: 'form-control', placeholder:"Last name" %>
+          </div>
+          
+          <%= f.label :email, "Email:", class: 'control-label' %>
+          <%= f.email_field :email, class: 'form-control'%>
+          
+          <%= f.label :password, "Password:", class: 'control-label' %>
+          <%= f.password_field :password, class: 'form-control'%>
+          
+          <%= f.label :password_confirmation, "Confirm password:", class: 'control-label' %>
+          <%= f.password_field :password_confirmation, class: 'form-control'%>
+    
+          <%= f.label :date_of_birth, "Date of birth:", class: 'control-label' %>
+          <%= f.date_field :date_of_birth, value: Date.new(1984, 1, 27), class:'form-control' %>
+          
+          <%= f.label :gender, "Gender:", class: 'control-label' %>
+          <div class="controls form-inline">
+            <%= f.radio_button :gender, "1", checked: @user.gender == true %>
+            <%= f.label :gender_1, "Male" %>
+            <%= f.radio_button :gender, "0" %>
+            <%= f.label :gender_0, "Female" %>
+          </div>
+          <br/>
+          
+          <%= f.label :safe_question, "Safe question:", class: 'control-label' %>
+          <%= f.select :safe_question, ['Which city were you born?', 'What\'s the name of your first pet?', 'What\'s your favorite color?'], {}, { class:'form-control'} %>
+          
+          <%= f.label :safe_answer, "Safe answer", class: 'control-label' %>
+          <%= f.text_field :safe_answer, class: 'form-control' %>
+          <br/>
+          <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target=_blank>change</a>
+    </div>
+  </div>
+</div>

@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   delete '/logout'  => 'sessions#destroy'
   # resources 'users'
   post   '/users'     => 'users#create', as: 'users'
+  get    '/users'     => 'users#index', as: 'index_users'
   get	   '/users/:id' => 'users#show', as: 'user'
   get	   '/users/:id/edit'  => 'users#edit', as: 'edit_user'
   delete '/users/:id' =>	'users#destroy', as: 'delete_user'
-  put  '/users/:id' => 'users#update', as: 'update_user'
+  patch  '/users/:id' => 'users#update', as: 'patch_user'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
