@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404142755) do
+ActiveRecord::Schema.define(version: 20150404150725) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150404142755) do
     t.string   "lastname"
     t.date     "date_of_birth"
     t.boolean  "admin",           default: false
+    t.string   "remember_digest"
   end
 
 end

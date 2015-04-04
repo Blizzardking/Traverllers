@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get	   '/users/:id/edit'  => 'users#edit', as: 'edit_user'
   delete '/users/:id' =>	'users#destroy', as: 'delete_user'
   patch  '/users/:id' => 'users#update', as: 'patch_user'
-
+  resources :account_activations, only: [:edit]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
