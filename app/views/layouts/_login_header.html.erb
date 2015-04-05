@@ -13,12 +13,13 @@
               <%= f.email_field :email, class: 'form-control', placeholder:"john@gmail.com" %>
               <%= f.label :password, 'Password', class:"control-label" %>
               <%= f.password_field :password, class: 'form-control', placeholder:"Password" %>
+              <%= f.label :remember_me, class: "control-label" do %>
+                <%= f.check_box :remember_me %>
+                <span>Remember me?</span>
+              <% end %>
               </div>
             <%= f.submit "Log in", class: "btn btn-primary" %>
-            <%= f.label :remember_me, class: "checkbox inline" do %>
-              <%= f.check_box :remember_me %>
-              <span>Remember me?</span>
-            <% end %>
+            
         <% end %>
 	</div><!-- end container -->
 </div><!-- end navbar -->
