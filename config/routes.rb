@@ -15,12 +15,19 @@ Rails.application.routes.draw do
   # resources 'users'
   post   '/users'     => 'users#create', as: 'users'
   get    '/users'     => 'users#index', as: 'index_users'
-  get	   '/users/:id' => 'users#show', as: 'user'
-  get	   '/users/:id/edit'  => 'users#edit', as: 'edit_user'
-  delete '/users/:id' =>	'users#destroy', as: 'delete_user'
-  patch  '/users/:id' => 'users#update', as: 'patch_user'
+  get	   '/user/:id' => 'users#show', as: 'user'
+  get	   '/user/:id/edit'  => 'users#edit', as: 'edit_user'
+  delete '/user/:id' =>	'users#destroy', as: 'delete_user'
+  patch  '/user/:id' => 'users#update', as: 'patch_user'
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :microposts,          only: [:create, :destroy]
+  resources :relationships,       only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
