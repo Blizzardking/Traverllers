@@ -6,16 +6,23 @@ class SessionsController < ApplicationController
   end
   
   def create
-    @user = User.find_by(email: params[:session][:email].downcase)
+    user = User.find_by(email: params[:session][:email].downcase)
     
-    if !@user
+    if !user
       flash.now[:danger] = 'Your account does not exist!'
       return render 'new'
     end
-    if (@user.authenticate(params[:session][:password]))
-      log_in @user
-      params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-      redirect_back_or @user
+    if (user.authenticate(params[:session][:password]))
+      if user.activated?
+        log_in user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        redirect_back_or user
+      else
+        message  = "Account not activated. "
+        message += "Check your email for the activation link."
+        flash[:warning] = message
+        redirect_to root_url
+      end
     else
       flash.now[:danger] = 'Incorrect password!'
       render 'new'

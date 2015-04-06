@@ -1,39 +1,47 @@
 <div class="row" id="carouselMain">
-    <div id="loginCarousel" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#loginCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#loginCarousel" data-slide-to="1"></li>
-          <li data-target="#loginCarousel" data-slide-to="2"></li>
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active" id="slide1">
-            <div class="carousel-caption">
-              Suzhou, China
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
+      <% flash.each do |message_type, message| %>
+        <% if message_type != 'error' %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+      <% end %>
+      <div id="loginCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          
+          <ol class="carousel-indicators">
+            <li data-target="#loginCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#loginCarousel" data-slide-to="1"></li>
+            <li data-target="#loginCarousel" data-slide-to="2"></li>
+          </ol>
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active" id="slide1">
+              <div class="carousel-caption">
+                Suzhou, China
+              </div>
+            </div>
+            <div class="item" id="slide2">
+              <div class="carousel-caption">
+                Texas, USA
+              </div>
+            </div>
+            <div class="item" id="slide3">
+              <div class="carousel-caption">
+                London, United Kindom
+              </div>
             </div>
           </div>
-          <div class="item" id="slide2">
-            <div class="carousel-caption">
-              Texas, USA
-            </div>
-          </div>
-          <div class="item" id="slide3">
-            <div class="carousel-caption">
-              London, United Kindom
-            </div>
-          </div>
-        </div>
-      
-        <!-- Controls -->
-        <a class="left carousel-control" href="#loginCarousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#loginCarousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+        
+          <!-- Controls -->
+          <a class="left carousel-control" href="#loginCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#loginCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+      </div>
     </div>
     
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" id="signUpPanel">
@@ -44,6 +52,7 @@
             </div>
             <div class="panel-body">
                <%= form_for :user, url:users_path, html:{class:"form-group"} do |f| %>
+                  
                   <%= render 'shared/error_messages' %>
                   <%= f.label :name, "Name:", class: 'control-label' %>
                   <div id='name' class='form-inline'>

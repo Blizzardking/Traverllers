@@ -14,7 +14,9 @@ User.create!(firstname:  "Renkai",
              date_of_birth:"1988-10-01",
              safe_question: "Which city did you meet your spouse?",
              safe_answer: "Tianjin",
-             admin: true)
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
 
 
 99.times do |n|
@@ -30,5 +32,7 @@ User.create!(firstname:  "Renkai",
                gender: "1",
                date_of_birth:"1988-10-01",
                safe_question: "Which city did you meet your spouse?",
-               safe_answer: "Tianjin")
+               safe_answer: "Tianjin",
+               activated: true,
+             activated_at: Time.zone.now)
 end

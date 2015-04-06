@@ -9,6 +9,8 @@ michael:
   gender: false
   safe_question: MyString
   safe_answer: MyString
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 John:
   firstname: John
@@ -19,3 +21,5 @@ John:
   gender: false
   safe_question: MyString
   safe_answer: MyString
+  activated: true
+  activated_at: <%= Time.zone.now %>
