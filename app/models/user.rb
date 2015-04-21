@@ -87,6 +87,15 @@ class User < ActiveRecord::Base
                      OR user_id = :user_id", user_id: id)
     end
     
+    def feed_by_query(key_word)
+       key_word = "%" + key_word + "%"
+       following_ids = "SELECT followed_id FROM relationships
+                     WHERE follower_id = :user_id"
+       related_ids = "SELECT id FROM users WHERE firstname LIKE '#{key_word}' OR lastname LIKE '#{key_word}'"
+       Micropost.where("(user_id IN (#{related_ids})) OR ((user_id IN (#{following_ids})
+                     OR user_id = :user_id ) AND (content LIKE :key))", user_id: id, key:key_word)
+    end
+    
      # Follows a user.
     def follow(other_user)
       active_relationships.create(followed_id: other_user.id)

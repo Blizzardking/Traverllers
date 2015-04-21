@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   
   get 'password_resets/new'
-
   get 'password_resets/edit'
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
   post   '/login'   => 'sessions#create'
   delete '/logout'  => 'sessions#destroy'
   # resources 'users'
+  match '/check-user/:email' =>"users#check_user", as: 'check_user', via:[:get, :post], :constraints => { :email => /[^\/]+/ }
   post   '/users'     => 'users#create', as: 'users'
   get    '/users'     => 'users#index', as: 'index_users'
   get	   '/user/:id' => 'users#show', as: 'user'
@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
+  
+  get   '/search'   => 'pages#my_search', as: 'search'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

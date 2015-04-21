@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.validationEngine
+//= require validate
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require ckeditor/init

@@ -42,6 +42,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def check_user
+    email = params[:email]
+    if User.exists?(:email => email)
+      render :json =>  false
+    else
+      render :json =>  true
+    end
+  end
+
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
