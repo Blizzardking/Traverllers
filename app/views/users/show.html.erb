@@ -20,6 +20,8 @@
   <!--  <%= link_to "View all posts", articles_path,  class:"btn btn-primary" %>-->
   <!--</div>-->
     <div class="col-md-6">
+      <div id='edit_post'> 
+      </div>
       <% if @user.microposts.any? %>
         <h3>News(<%= @user.microposts.count %>)</h3>
         <ol class="microposts">
