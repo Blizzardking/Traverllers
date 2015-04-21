@@ -13,15 +13,6 @@
             <%= f.text_field :firstname, class: 'form-control', placeholder:"First name" %>
             <%= f.text_field :lastname, class: 'form-control', placeholder:"Last name" %>
           </div>
-          
-          <%= f.label :email, "Email:", class: 'control-label' %>
-          <%= f.email_field :email, class: 'form-control'%>
-          
-          <%= f.label :password, "Password:", class: 'control-label' %>
-          <%= f.password_field :password, class: 'form-control'%>
-          
-          <%= f.label :password_confirmation, "Confirm password:", class: 'control-label' %>
-          <%= f.password_field :password_confirmation, class: 'form-control'%>
     
           <%= f.label :date_of_birth, "Date of birth:", class: 'control-label' %>
           <%= f.date_field :date_of_birth, value: Date.new(1984, 1, 27), class:'form-control' %>
