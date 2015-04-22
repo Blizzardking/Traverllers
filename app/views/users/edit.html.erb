@@ -18,12 +18,12 @@
           <%= f.date_field :date_of_birth, value: Date.new(1984, 1, 27), class:'form-control' %>
           
           <%= f.label :gender, "Gender:", class: 'control-label' %>
-          <div class="controls form-inline">
-            <%= f.radio_button :gender, "1", checked: @user.gender == true %>
-            <%= f.label :gender_1, "Male" %>
-            <%= f.radio_button :gender, "0" %>
-            <%= f.label :gender_0, "Female" %>
-          </div>
+            <div class="controls form-inline">
+              <%= f.radio_button :gender, "male", :checked => true %>
+              <%= f.label :gender_true, "Male" %>
+              <%= f.radio_button :gender, "female" %>
+              <%= f.label :gender_0, "Female" %>
+            </div>
           <br/>
           
           <%= f.label :safe_question, "Safe question:", class: 'control-label' %>
