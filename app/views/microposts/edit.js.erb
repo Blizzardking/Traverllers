@@ -1,1 +1,4 @@
-$("#edit_post").html("<%= escape_javascript(render('shared/micropost_form')) %>")
+$("#new_micropost").html("<%= escape_javascript(render('shared/micropost_form')) %>")
+$('html, body').animate({
+    scrollTop: $("#new_micropost").offset().top - 100
+}, 500);

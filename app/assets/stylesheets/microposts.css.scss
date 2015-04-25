@@ -6,7 +6,7 @@ $gray-light: #d3d3d3;
 .microposts {
   list-style: none;
   padding: 0;
-  li {
+  > li {
     padding: 10px 0 10px;
     border-top: 1px solid #e8e8e8;
   }
@@ -27,6 +27,7 @@ $gray-light: #d3d3d3;
     display: block;
     margin-left: 60px;
   }
+
   .gravatar {
     float: left;
     margin-right: 10px;

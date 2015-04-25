@@ -13,6 +13,8 @@ class UsersController < ApplicationController
       redirect_to root_url
     end
     @microposts = @user.microposts.paginate(page: params[:page])
+    # remove late
+    @comment = @microposts.first.comments.build
   end
 
   # GET /users/new
