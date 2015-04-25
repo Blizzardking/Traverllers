@@ -1,0 +1,7 @@
+<div class='comment_form'>
+  <%= form_for(@comment, url: micropost_comments_path, remote: true, :html=>{class:'navbar-form'}) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+      <%= f.text_area :body, placeholder: "...", class:'form-control', cols:40 %>
+    <%= f.submit "Reply", class: "btn btn-primary" %>
+  <% end %>
+</div>

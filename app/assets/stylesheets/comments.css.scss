@@ -1,0 +1,30 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+  
+$gray-light: #d3d3d3;
+.comments {
+  list-style: none;
+  padding-left: 60px;
+  li {
+    padding: 2px 0;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  span.content {
+    margin-left: 0px;
+    display:inline;
+  }
+  span.timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 0px;
+  }
+}
+#new_comment {
+  textarea{
+    overflow:hidden;
+  }
+}

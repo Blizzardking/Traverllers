@@ -1,0 +1,7 @@
+$("#new_comment").remove()
+$("#micropost-<%= @micropost.id %>").append("<%= escape_javascript(
+          render('shared/comment_form')) %>")
+
+$('html, body').animate({
+    scrollTop: $("#new_comment").offset().top - 200
+}, 500);
