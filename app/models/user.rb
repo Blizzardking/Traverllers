@@ -19,11 +19,18 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
     has_secure_password
-    validates :password, length: { minimum: 8 }
+    validates :password, length: { minimum: 8 }, if: :password_validation_required?
     validates :gender, presence: true
     validates :date_of_birth, presence: true
     validates :safe_answer, presence: true
     
+    has_attached_file :avatar, :styles => { :thumb => "80x80>"}, :default_url => "/images/:style/missing.png"
+    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+    
+    def password_validation_required?
+      !@password.blank?
+    end
+
     def activate
       update_attribute(:activated,    true)
       update_attribute(:activated_at, Time.zone.now)

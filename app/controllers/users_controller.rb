@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if @user.update(user_params)
+    if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
     else
@@ -92,7 +92,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:firstname, :lastname, :password, :password_confirmation, :email, :date_of_birth, :gender, :safe_question, :safe_answer)
+      params.require(:user).permit(:firstname, :lastname, :password, :password_confirmation,:avatar, :email, :date_of_birth, :gender, :safe_question, :safe_answer)
     end
     
      # Confirms the correct user.
