@@ -23,8 +23,14 @@ $gray-light: #d3d3d3;
     margin-left: 0px;
   }
 }
+
 #new_comment {
   textarea{
     overflow:hidden;
   }
 }
+
+.comment_form {
+  padding-left: 50px;
+}
+

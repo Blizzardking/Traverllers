@@ -1,6 +1,9 @@
 <li id="comment-<%= comment.id %>">
   <%= link_to gravatar_for(comment.user, size:10), comment.user %>
   <span class="user"><%= link_to comment.user.firstname, comment.user %></span>:<span class="content"> <%= comment.body %></span>
-  <span class="timestamp">Commented <%= time_ago_in_words(comment.created_at) %> ago.</span>
-  
+ <span class="timestamp">Commented <%= time_ago_in_words(comment.created_at) %> ago.
+  <% if current_user.id == comment.user.id %>
+      <%= link_to "delete", micropost_comment_path(comment.micropost, comment), method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
+  <% end %>
+  </span> 
 </li>

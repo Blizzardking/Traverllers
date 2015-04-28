@@ -42,6 +42,16 @@ $gray-medium-light: #eaeaea;
   height: 50px; 
 }
 
+.footer {
+    position: fixed; 
+    bottom: 0;
+    padding-top: 10px;
+    width:100%;
+    height: 30px;
+    background-color: #f8f8f8;
+    border: 1px solid transparent;
+    border-color: #e7e7e7;
+}
 body > div.container {
   margin-top: 75px;
 }

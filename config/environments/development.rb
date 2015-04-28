@@ -34,8 +34,8 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.delivery_method = :test
-  host = 'travellers-blizzardking-1.c9.io'
-  config.action_mailer.default_url_options = { host: host }
+  host = '54.186.169.130'
+  config.action_mailer.default_url_options = { host: host, port:3000 }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.action_mailer.raise_delivery_errors = true
